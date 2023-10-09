@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+	<select id="selectBoardList" resultType="com.jh.dto.BoardDTO">
+		<![CDATA[
+			SELECT b2.*
+			FROM (SELECT rownum rnum, b1.*
+			FROM (SELECT * FROM board ORDER BY bno DESC)b1)b2
+			WHERE rnum>=#{start} AND rnum<=#{end}
+		]]>
+	</select>
+	<select id="selectAllCount" resultType="java.lang.Integer">
+		SELECT count(*) FROM board
+	</select>
+	<update id="incHitcount">
+		UPDATE board SET hitcount=hitcount+1 WHERE bno=#{bno}
+	</update>
+	<select id="selectBoardDetail" resultType="com.jh.dto.BoardDTO">
+		SELECT * FROM board WHERE bno=#{bno}
+	</select>
+	<select id="insertBoard">
+		INSERT INTO board(bno, writer, title, content)
+		VALUES (seq_board.nextval, #{writer}, #{title}, #{content})
+	</select>
+	<update id="updateBoard">
+		UPDATE board
+		SET    title=#{title}, content=#{content}
+		WHERE  bno=#{bno}
+	</update>
+	<delete id="deleteBoard">
+		DELETE FROM board WHERE bno=#{bno}
+	</delete>
+</mapper>
