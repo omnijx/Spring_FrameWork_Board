@@ -9,7 +9,7 @@
 	<script src="resources/js/jquery-3.7.0.min.js"/></script>
 	<style>
 	body {
-		background-color: #eeeeee;
+		background-color: #eeeeee;  
 	}
 	.main {
 /* 		text-align: center; */
