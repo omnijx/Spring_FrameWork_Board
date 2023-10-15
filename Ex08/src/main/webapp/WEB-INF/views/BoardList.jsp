@@ -6,7 +6,7 @@
 <c:choose>
 	<c:when test="${empty loginId}">
 		<script>
-			alert("로그인부터 하세요");
+			alert("로그인부터 하세요"); 
 			location.href = "${pageContext.request.contextpath}/";
 		</script>
 	</c:when>
