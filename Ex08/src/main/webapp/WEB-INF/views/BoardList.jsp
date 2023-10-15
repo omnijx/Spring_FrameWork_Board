@@ -13,7 +13,7 @@
 </c:choose>
 <%-- //로그인 여부 체크 --%>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<meta charset="UTF-8">
